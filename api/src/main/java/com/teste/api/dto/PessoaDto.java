@@ -1,4 +1,4 @@
-package dto;
+package com.teste.api.dto;
 
 import com.teste.api.model.Pessoa;
 

@@ -11,8 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.teste.api.dto.PessoaDto;
 import com.teste.api.model.Pessoa;
-import com.teste.api.repository.Pessoa2Repository;
+import com.teste.api.services.PessoaServices;
 
 
 @RestController
@@ -21,17 +22,19 @@ import com.teste.api.repository.Pessoa2Repository;
 public class PessoaController {
 	
 	@Autowired
-	private Pessoa2Repository pessoa2Repository;
+	private PessoaServices pessoaServices;
 	
 	@GetMapping
-	public List<Pessoa> listar(){
-		return pessoa2Repository.findAll();
+	public List<PessoaDto> findAll(){
+		List<Pessoa> result = pessoaServices.findAll();
+		List<PessoaDto> dto = result.stream().map(x -> new PessoaDto(x)).toList();
+		return dto;
 	}
 	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public Pessoa salvar (@RequestBody Pessoa pessoa) {
-		return pessoa2Repository.save(pessoa);
+		return pessoaServices.saveAll(pessoa);
 	}
 }
 
