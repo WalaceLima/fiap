@@ -15,6 +15,8 @@ import com.teste.api.dto.PessoaDto;
 import com.teste.api.model.Pessoa;
 import com.teste.api.services.PessoaServices;
 
+import jakarta.validation.Valid;
+
 
 @RestController
 @RequestMapping("/pessoa")
@@ -33,7 +35,7 @@ public class PessoaController {
 	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public Pessoa salvar (@RequestBody Pessoa pessoa) {
+	public Pessoa salvar (@Valid @RequestBody Pessoa pessoa) {
 		return pessoaServices.saveAll(pessoa);
 	}
 }

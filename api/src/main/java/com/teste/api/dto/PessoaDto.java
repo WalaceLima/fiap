@@ -1,11 +1,22 @@
 package com.teste.api.dto;
 
+import java.time.LocalDate;
+
 import com.teste.api.model.Pessoa;
 
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+
 public class PessoaDto {
+   @EqualsAndHashCode.Include
 	private Long Id;
 	private String nome;
-	private String dataNascimento;
+	private LocalDate dataNascimento;
 	private String sexo;
 	private String grauParentesco;
 	
@@ -18,21 +29,6 @@ public class PessoaDto {
 	}	
 	public PessoaDto() {
 
-	}
-	public String getNome() {
-		return nome;
-	}
-	public String getDataNascimento() {
-		return dataNascimento;
-	}
-	public String getSexo() {
-		return sexo;
-	}
-	public String getGrauParentesco() {
-		return grauParentesco;
-	}
-	public Long getId() {
-		return Id;
 	}
 
 }

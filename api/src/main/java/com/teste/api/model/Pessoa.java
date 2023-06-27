@@ -1,76 +1,41 @@
 package com.teste.api.model;
 
-import java.util.Objects;
+import java.time.LocalDate;
 
 import jakarta.persistence.Entity;
-
+import jakarta.validation.constraints.NotBlank;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
-
+@Getter
+@Setter
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Pessoa {
-
+    @EqualsAndHashCode.Include
 	@jakarta.persistence.Id
 	@jakarta.persistence.GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
 	private Long Id;
 
-	private String nome;
-	private String dataNascimento;
+	@NotBlank(message="O campo Nome não pode estar vazio !")
+    private String nome;
+	
+	private LocalDate dataNascimento;
+	@NotBlank(message="O campo Sexo não pode estar vazio !")
 	private String sexo;
+	@NotBlank(message="O campo grauParentesco não pode estar vazio !")
 	private String grauParentesco;
 
-	public Pessoa(String nome, String dataNascimento, String sexo, String grauParentesco) {
+	public Pessoa(String nome, LocalDate dataNascimento, String sexo, String grauParentesco) {
 		this.nome = nome;
 		this.dataNascimento = dataNascimento;
 		this.sexo = sexo;
 		this.grauParentesco = grauParentesco;
-	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(Id);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Pessoa other = (Pessoa) obj;
-		return Objects.equals(Id, other.Id);
 	}
 
 	public Pessoa() {
 	}
-	public Long getId() {
-		return Id;
-	}
-	public String getNome() {
-		return nome;
-	}
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-	public String getDataNascimento() {
-		return dataNascimento;
-	}
-	public void setDataNascimento(String dataNascimento) {
-		this.dataNascimento = dataNascimento;
-	}
-	public String getSexo() {
-		return sexo;
-	}
-	public void setSexo(String sexo) {
-		this.sexo = sexo;
-	}
-	public String getGrauParentesco() {
-		return grauParentesco;
-	}
 
-	public void setGrauParentesco(String grauParentesco) {
-		this.grauParentesco = grauParentesco;
-	}
 	
 }
