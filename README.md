@@ -49,6 +49,6 @@ Resposta 201 Created: Este código de status é retornado quando uma solicitaç�
 
 Ação recomendada: Os usuários devem verificar a validade dos parâmetros fornecidos e corrigir quaisquer erros antes de tentar novamente.
 ### Repositório API:
-- [API de Gestão de Pessoas](https://github.com/Eliscarla/fiap/tree/main).
+- [API de Gestão de Pessoas](https://github.com/Eliscarla/fiap/tree/main/api).
 
 
