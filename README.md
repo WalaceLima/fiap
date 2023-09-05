@@ -9,7 +9,10 @@ Uma vez validadas as informações, a API informa que está tudo ok e dar um ret
 <h3>Endpoint:</h3>
   /pessoas
 <h3>Método HTTP:</h3>
-  Post
+- Post
+- Get
+- Update
+- Delete
 <h3>Descrição:</h3>
 Este endpoint cria um novo cadastro de pessoa com base nos parâmetros fornecidos.
 Neste exemplo, o endpoint é do tipo POST e os parâmetros de solicitação são enviados no corpo da solicitação em formato JSON. Os parâmetros incluem nome, dataNascimento, sexo e grauParentesco, que são utilizados para criar um novo cadastro de pessoa
